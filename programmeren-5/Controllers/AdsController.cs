@@ -19,8 +19,27 @@ namespace programmeren_5.Controllers
         }
 
         // GET: Ads
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder)
         {
+            ViewData["NameSortParm"] = string.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewData["PriceSortParm"] = sortOrder == "Price" ? "price_desc" : "Price";
+            var ads = from s in _context.Ad
+                           select s;
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    ads = ads.OrderByDescending(s => s.Name);
+                    break;
+                case "Price":
+                    ads = ads.OrderBy(s => s.Price);
+                    break;
+                case "price_desc":
+                    ads = ads.OrderByDescending(s => s.Price);
+                    break;
+                default:
+                    ads = ads.OrderBy(s => s.Name);
+                    break;
+            }
             return View(await _context.Ad.ToListAsync());
         }
 
