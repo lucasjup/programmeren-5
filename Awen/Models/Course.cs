@@ -15,6 +15,10 @@ namespace Awen.Models
 
         public string Description { get; set; }
 
+        public int Participants { get; set; }
+
+        public int MaxParticipants { get; set; }
+
         public DateTime Date { get; set; }
 
         public decimal Duration { get; set; }
