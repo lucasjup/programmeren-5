@@ -16,12 +16,12 @@ namespace Awen.Areas.Identity
         public void Configure(IWebHostBuilder builder)
         {
             builder.ConfigureServices((context, services) => {
-                services.AddDbContext<AwenContext>(options =>
-                    options.UseSqlServer(
-                        context.Configuration.GetConnectionString("AwenContextConnection")));
+                //services.AddDbContext<AwenContext>(options =>
+                //    options.UseSqlServer(
+                //        context.Configuration.GetConnectionString("AwenContextConnection")));
 
-                services.AddDefaultIdentity<AwenUser>()
-                    .AddEntityFrameworkStores<AwenContext>();
+                //services.AddDefaultIdentity<AwenUser>()
+                //    .AddEntityFrameworkStores<AwenContext>();
             });
         }
     }
