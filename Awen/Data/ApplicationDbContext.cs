@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Awen.Models;
 
 namespace Awen.Data
 {
@@ -12,5 +13,6 @@ namespace Awen.Data
             : base(options)
         {
         }
+        public DbSet<Awen.Models.Course> Course { get; set; }
     }
 }
